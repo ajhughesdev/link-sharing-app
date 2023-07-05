@@ -1,0 +1,63 @@
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  composes: heading-md from './../../index.css';
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  composes: body-md from './../../index.css';
+}
+
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 1.5rem;
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1.5rem;
+  }
+}
+
+.label {
+  composes: label from './../../index.css';
+}
+
+.email,
+.password {
+  composes: input from './../../index.css';
+  color: rgb(var(--dark-grey) / 0.5);
+}
+
+.primary {
+  background: var(--purple);
+  color: var(--white);
+  composes: button from './../../index.css';
+  padding: 11px 27px;
+  align-self: stretch;
+
+  &:hover {
+    background: var(--purple-hover-color);
+  }
+}
+
+.footer {
+  text-align: center;
+  composes: desc;
+}
