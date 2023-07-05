@@ -1,0 +1,154 @@
+@import 'the-new-css-reset';
+
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('./assets/fonts/InstrumentSans-VariableFont_wdth,wght.woff2') format('woff2-variations');
+  font-weight: 400 700;
+  font-stretch: 75% 100%;
+  font-style: normal;
+}
+
+/* Baseline for default links */
+a:not([class]) {
+  /* Relatively sized thickness and offset */
+  text-decoration-thickness: max(0.08em, 1px);
+  text-underline-offset: 0.15em;
+  color: var(--purple);
+}
+
+:focus-visible {
+  --outline-size: max(2px, 0.15em);
+
+  outline: var(--outline-width, var(--outline-size)) var(--outline-style, solid) var(--outline-color, currentColor);
+  outline-offset: var(--outline-offset, var(--outline-size));
+}
+
+/* Scroll padding allowance above anchor links */
+:target {
+  scroll-padding-block-start: 2rem;
+}
+
+/* Scroll padding allowance below focused elements to ensure they are clearly in view */
+:focus {
+  scroll-padding-block-end: 8vh;
+}
+
+:root {
+  font-family: 'Instrument Sans', sans-serif;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --grey: #737373;
+  --dark-grey: 51 51 51;
+  --light-grey: #fafafa;
+  --purple: #633cff;
+  --purple-hover-color: #beadff;
+  --light-purple: #efebff;
+  --borders: #d9d9d9;
+  --white: #fff;
+  --red: #ff3939;
+}
+
+.app {
+  padding: 2rem;
+  color-scheme: light;
+  accent-color: var(--purple);
+  background: var(--white, #fff);
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4rem;
+  flex: 1 0 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+.heading-md {
+  color: rgb(var(--dark-grey));
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.heading-sm {
+  color: rgb(var(--dark-grey));
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.body-md {
+  color: var(--grey);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.body-sm {
+  color: rgb(var(--dark-grey));
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  composes: heading-sm;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &[disabled] {
+    opacity: 0.25;
+  }
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  align-self: stretch;
+  color: rgb(var(--dark-grey), #333);
+  composes: body-sm;
+}
+
+.input {
+  display: flex;
+  padding: 0.75rem 1rem 0.75rem calc(1rem + 28px);
+  align-items: center;
+  gap: 0.75rem;
+  align-self: stretch;
+  border: 1px solid var(--borders, #d9d9d9);
+  background: var(--white, #fff);
+  border-radius: .5rem;
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  background-position-x: 16px;
+  composes: body-md;
+
+  &[type="email"] {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBmaWxsPSIjNzM3MzczIiBkPSJNMTQgM0gyYS41LjUgMCAwIDAtLjUuNVYxMmExIDEgMCAwIDAgMSAxaDExYTEgMSAwIDAgMCAxLTFWMy41QS41LjUgMCAwIDAgMTQgM1ptLS41IDloLTExVjQuNjM3bDUuMTYyIDQuNzMyYS41LjUgMCAwIDAgLjY3NiAwTDEzLjUgNC42MzdWMTJaIi8+PC9zdmc+)
+  }
+
+  &[type="password"] {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBmaWxsPSIjNzM3MzczIiBkPSJNMTMgNWgtMlYzLjVhMyAzIDAgMCAwLTYgMFY1SDNhMSAxIDAgMCAwLTEgMXY3YTEgMSAwIDAgMCAxIDFoMTBhMSAxIDAgMCAwIDEtMVY2YTEgMSAwIDAgMC0xLTFaTTguNSA5LjkxNFYxMS41YS41LjUgMCAwIDEtMSAwVjkuOTE0YTEuNSAxLjUgMCAxIDEgMSAwWk0xMCA1SDZWMy41YTIgMiAwIDEgMSA0IDBWNVoiLz48L3N2Zz4=)
+  }
+}
