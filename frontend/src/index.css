@@ -8,31 +8,6 @@
   font-style: normal;
 }
 
-/* Baseline for default links */
-a:not([class]) {
-  /* Relatively sized thickness and offset */
-  text-decoration-thickness: max(0.08em, 1px);
-  text-underline-offset: 0.15em;
-  color: var(--purple);
-}
-
-:focus-visible {
-  --outline-size: max(2px, 0.15em);
-
-  outline: var(--outline-width, var(--outline-size)) var(--outline-style, solid) var(--outline-color, currentColor);
-  outline-offset: var(--outline-offset, var(--outline-size));
-}
-
-/* Scroll padding allowance above anchor links */
-:target {
-  scroll-padding-block-start: 2rem;
-}
-
-/* Scroll padding allowance below focused elements to ensure they are clearly in view */
-:focus {
-  scroll-padding-block-end: 8vh;
-}
-
 :root {
   font-family: 'Instrument Sans', sans-serif;
   color-scheme: light dark;
@@ -48,17 +23,57 @@ a:not([class]) {
   --purple: #633cff;
   --purple-hover-color: #beadff;
   --light-purple: #efebff;
-  --borders: #d9d9d9;
-  --white: #fff;
+  --borders: 217 217 217;
+  --white: 255 255 255;
   --red: #ff3939;
+}
+
+:root {
+  color-scheme: light;
+  --accent-color: var(--purple);
+  --accent-color-hover: var(--purple-hover-color);
+  --warning-color: var(--red);
+  --button-text: rgb(var(--white));
+  --primary-text: rgb(var(--dark-grey));
+  --secondary-text: var(--grey);
+  --placeholder-text: rgb(var(--dark-grey) / 0.5);
+  --primary-bg: rgb(var(--white));
+  --borders-color: rgb(var(--borders));
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+    --primary-text: rgb(var(--white));
+    --secondary-text: rgb(var(--white) / 0.8);
+    --placeholder-text: rgb(var(--white) / 0.6);
+    --primary-bg: rgb(var(--dark-grey));
+    --borders-color: rgb(var(--borders) / 0.5);
+  }
+}
+
+/* Baseline for default links */
+a:not([class]) {
+  /* Relatively sized thickness and offset */
+  text-decoration-thickness: max(0.08em, 1px);
+  text-underline-offset: 0.15em;
+  color: var(--accent-color);
+}
+
+/* Scroll padding allowance above anchor links */
+:target {
+  scroll-padding-block-start: 2rem;
+}
+
+/* Scroll padding allowance below focused elements to ensure they are clearly in view */
+:focus {
+  scroll-padding-block-end: 8vh;
 }
 
 .app {
   padding: 2rem;
-  color-scheme: light;
-  accent-color: var(--purple);
-  background: var(--white, #fff);
+  accent-color: var(--accent-color);
+  background: var(--primary-bg);
   height: 100svh;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -69,33 +84,34 @@ a:not([class]) {
 .container {
   display: flex;
   flex-direction: column;
+  width: 100%;
   align-items: flex-start;
   gap: 2.5rem;
 }
 
 .heading-md {
-  color: rgb(var(--dark-grey));
+  color: var(--primary-text);
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.5;
 }
 
 .heading-sm {
-  color: rgb(var(--dark-grey));
+  color: var(--primary-text);
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.5;
 }
 
 .body-md {
-  color: var(--grey);
+  color: var(--secondary-text);
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
 }
 
 .body-sm {
-  color: rgb(var(--dark-grey));
+  color: var(--primary-text);
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 1.5;
@@ -109,6 +125,7 @@ a:not([class]) {
   gap: 0.5rem;
   border-radius: 0.5rem;
   width: 100%;
+  color: var(--button-text);
   composes: heading-sm;
 
   &:hover {
@@ -121,12 +138,13 @@ a:not([class]) {
 }
 
 .label {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.25rem;
   align-self: stretch;
-  color: rgb(var(--dark-grey), #333);
+  color: var(--primary-text);
   composes: body-sm;
 }
 
@@ -136,19 +154,54 @@ a:not([class]) {
   align-items: center;
   gap: 0.75rem;
   align-self: stretch;
-  border: 1px solid var(--borders, #d9d9d9);
-  background: var(--white, #fff);
-  border-radius: .5rem;
+  border: 1px solid var(--borders-color);
+  border-radius: 0.5rem;
   background-repeat: no-repeat;
   background-position-y: 50%;
   background-position-x: 16px;
+  color: var(--primary-text);
+  width: 100%;
   composes: body-md;
 
-  &[type="email"] {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBmaWxsPSIjNzM3MzczIiBkPSJNMTQgM0gyYS41LjUgMCAwIDAtLjUuNVYxMmExIDEgMCAwIDAgMSAxaDExYTEgMSAwIDAgMCAxLTFWMy41QS41LjUgMCAwIDAgMTQgM1ptLS41IDloLTExVjQuNjM3bDUuMTYyIDQuNzMyYS41LjUgMCAwIDAgLjY3NiAwTDEzLjUgNC42MzdWMTJaIi8+PC9zdmc+)
+  &::placeholder {
+    color: var(--placeholder-text);
+    font-size: 1rem;
   }
 
-  &[type="password"] {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBmaWxsPSIjNzM3MzczIiBkPSJNMTMgNWgtMlYzLjVhMyAzIDAgMCAwLTYgMFY1SDNhMSAxIDAgMCAwLTEgMXY3YTEgMSAwIDAgMCAxIDFoMTBhMSAxIDAgMCAwIDEtMVY2YTEgMSAwIDAgMC0xLTFaTTguNSA5LjkxNFYxMS41YS41LjUgMCAwIDEtMSAwVjkuOTE0YTEuNSAxLjUgMCAxIDEgMSAwWk0xMCA1SDZWMy41YTIgMiAwIDEgMSA0IDBWNVoiLz48L3N2Zz4=)
+  &[type='email'] {
+    appearance: none;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBmaWxsPSIjNzM3MzczIiBkPSJNMTQgM0gyYS41LjUgMCAwIDAtLjUuNVYxMmExIDEgMCAwIDAgMSAxaDExYTEgMSAwIDAgMCAxLTFWMy41QS41LjUgMCAwIDAgMTQgM1ptLS41IDloLTExVjQuNjM3bDUuMTYyIDQuNzMyYS41LjUgMCAwIDAgLjY3NiAwTDEzLjUgNC42MzdWMTJaIi8+PC9zdmc+);
   }
+
+  &[type='password'] {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBmaWxsPSIjNzM3MzczIiBkPSJNMTMgNWgtMlYzLjVhMyAzIDAgMCAwLTYgMFY1SDNhMSAxIDAgMCAwLTEgMXY3YTEgMSAwIDAgMCAxIDFoMTBhMSAxIDAgMCAwIDEtMVY2YTEgMSAwIDAgMC0xLTFaTTguNSA5LjkxNFYxMS41YS41LjUgMCAwIDEtMSAwVjkuOTE0YTEuNSAxLjUgMCAxIDEgMSAwWk0xMCA1SDZWMy41YTIgMiAwIDEgMSA0IDBWNVoiLz48L3N2Zz4=);
+  }
+
+  &:focus,
+  &:active {
+    outline: 1px solid var(--accent-color);
+    box-shadow: 0 0 2rem 0 rgb(99 60 255 / 0.25);
+    caret-color: var(--accent-color);
+  }
+
+  /* &.invalid {
+    outline: unset;
+    box-shadow: unset;
+    caret-color: var(--accent-color);
+  } */
+
+  /* &::invalid {
+    border: 1px solid var(--warning-color);
+  } */
+
+  /* &::focus:invalid {
+    outline: none;
+  } */
 }
+
+/* .error {
+  width: 100%;
+  padding: 0;
+  composes: body-sm;
+  color: var(--warning-color);
+} */

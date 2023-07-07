@@ -1,7 +1,19 @@
 import { Link } from 'react-router-dom'
 import css from './login.module.css'
+import TextInput from '../TextInput/TextInput'
 
 const Login = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        const formElement = e.target
+        const isValid = formElement.checkValidity()
+
+        if (isValid) {
+            formElement.reset()
+        }
+    }
+
     return (
         <div className='container'>
             <section className={css.title}>
@@ -11,12 +23,12 @@ const Login = () => {
                 </p>
             </section>
             <section className={css['sign-in']}>
-                <form>
-                    <label className={css.label} htmlFor='email'>Email address <input className={css.email} type='email' id='email' placeholder='e.g. alex@email.com' /></label>
-                    <label className={css.label} htmlFor='password'>Password <input className={css.password} type='password' id='password' placeholder='Enter your password' /></label>
-                    <button className={`btn ${css.primary}`}>Login</button>
+                <form noValidate className={css.form} onSubmit={handleSubmit}>
+                    <TextInput type='email' label='Email address' id='email' placeholder='e.g. alex@email.com' errorText="Can't be empty" />
+                    <TextInput type='password' label='Password' id='password' placeholder='Enter your password' errorText='Please check again' />
+                    <button className={css.primary} type='submit'>Login</button>
                 </form>
-                <div className={css['footer']}>
+                <div className={css.footer}>
                     <p>Don't have an account?</p>
                     <Link to='/create-account'>Create account</Link>
                 </div>

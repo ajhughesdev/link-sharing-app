@@ -35,27 +35,30 @@
   }
 }
 
-.label {
-  composes: label from './../../index.css';
-}
-
-.email,
-.password {
-  composes: input from './../../index.css';
-  color: rgb(var(--dark-grey) / 0.5);
-}
-
 .primary {
-  background: var(--purple);
-  color: var(--white);
+  background: var(--accent-color);
   composes: button from './../../index.css';
   padding: 11px 27px;
   align-self: stretch;
 
   &:hover {
-    background: var(--purple-hover-color);
+    background: var(--accent-color-hover);
+    box-shadow: 0 0 2rem 0 rgb(99 60 255 / 0.25);
   }
 }
+
+/* .submitted {
+  outline-color: red;
+  box-shadow: unset;
+}
+
+.submitted input:invalid {
+  border-color: red;
+}
+
+.submitted label {
+  color: red;
+} */
 
 .footer {
   text-align: center;

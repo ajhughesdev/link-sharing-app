@@ -1,0 +1,31 @@
+.validationMessage {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  composes: body-sm from './../../index.css';
+  color: var(--warning-color);
+}
+
+.label {
+  composes: label from './../../index.css';
+}
+
+.input {
+  composes: input from './../../index.css';
+
+  &.invalid {
+    border: 1px solid var(--warning-color);
+    outline: unset;
+    box-shadow: unset;
+  }
+
+  &.invalid::placeholder {
+    opacity: 0;
+  }
+}
+
+@media (min-width: 376px) {
+  .input.invalid::placeholder {
+    opacity: 1;
+  }
+}
