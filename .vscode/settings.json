@@ -1,0 +1,7 @@
+{
+    "editor.formatOnSave": true,
+    "javascript.preferences.quoteStyle": "single",
+    "javascript.format.semicolons": "remove",
+    "editor.matchBrackets": "never",
+    "editor.tabSize": 2
+}

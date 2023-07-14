@@ -5,20 +5,23 @@ const TextInput = ({ type, label, placeholder, errorText }) => {
     const [validationMessage, setValidationMessage] = useState('')
     const [inputValue, setInputValue] = useState('')
 
-    const handleInvalid = (e) => {
-        const target = e.target
-        setValidationMessage(target.validationMessage)
+    const handleInvalid = (event) => {
+        setValidationMessage(event.target.validationMessage)
     }
 
-    const handleChange = (e) => {
-        setInputValue(e.target.value)
+    const handleChange = (event) => {
+        setInputValue(event.target.value)
         if (validationMessage) {
             setValidationMessage('')
         }
     }
 
+    const labelStyle = !validationMessage
+        ? { color: 'var(--primary-text)' }
+        : { color: 'var(--warning-color)' }
+
     return (
-        <label className={css.label} style={!validationMessage ? { color: 'var(--primary-text)' } : { color: 'var(--warning-color)', }}>
+        <label className={css.label} style={labelStyle}>
             {label}
             <input
                 type={type}
@@ -31,15 +34,12 @@ const TextInput = ({ type, label, placeholder, errorText }) => {
                 onChange={handleChange}
             />
             {validationMessage && (
-                <div className={css.validationMessage}>
+                <div className={css['validation-message']}>
                     {errorText || validationMessage}
                 </div>
             )}
         </label>
-
     )
 }
-
-TextInput.displayName = 'TextInput'
 
 export default memo(TextInput)

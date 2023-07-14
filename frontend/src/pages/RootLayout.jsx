@@ -4,8 +4,9 @@ import Header from './../components/Header/Header'
 const RootLayout = () => {
     return (
         <div className='app'>
-            <Header />
-            <Outlet />
+            <>
+                <Outlet />
+            </>
         </div>
     )
 }
