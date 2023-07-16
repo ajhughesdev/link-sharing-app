@@ -13,14 +13,14 @@
   display: flex;
   flex-direction: column;
   align-self: stretch;
-  composes: heading-md from './../../index.css';
+  composes: heading-md from "./../../index.css";
 }
 
 .description {
   display: flex;
   flex-direction: column;
   align-self: stretch;
-  composes: body-md from './../../index.css';
+  composes: body-md from "./../../index.css";
 }
 
 .sign-in {
@@ -45,7 +45,7 @@
 
 .primary-button {
   background: var(--accent-color);
-  composes: button from './../../index.css';
+  composes: button from "./../../index.css";
   padding: 11px 27px;
   align-self: stretch;
 

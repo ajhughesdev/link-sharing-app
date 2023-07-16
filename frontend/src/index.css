@@ -1,15 +1,16 @@
-@import 'the-new-css-reset';
+@import "the-new-css-reset";
 
 @font-face {
-  font-family: 'Instrument Sans';
-  src: url('./assets/fonts/InstrumentSans-VariableFont_wdth,wght.woff2') format('woff2-variations');
+  font-family: "Instrument Sans";
+  src: url("./assets/fonts/InstrumentSans-VariableFont_wdth,wght.woff2")
+    format("woff2-variations");
   font-weight: 400 700;
   font-stretch: 75% 100%;
   font-style: normal;
 }
 
 :root {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: "Instrument Sans", sans-serif;
   color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -85,11 +86,6 @@ a:not([class]) {
     align-items: center;
     gap: 51px;
     background-color: var(--secondary-bg);
-    /* padding-block-start: 226px; */
-  }
-
-  @media (min-width: 1100px) {
-    /* padding-block-start: 206px; */
   }
 }
 
@@ -211,12 +207,12 @@ main {
     font-size: 1rem;
   }
 
-  &[type='email'] {
+  &[type="email"] {
     appearance: none;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBmaWxsPSIjNzM3MzczIiBkPSJNMTQgM0gyYS41LjUgMCAwIDAtLjUuNVYxMmExIDEgMCAwIDAgMSAxaDExYTEgMSAwIDAgMCAxLTFWMy41QS41LjUgMCAwIDAgMTQgM1ptLS41IDloLTExVjQuNjM3bDUuMTYyIDQuNzMyYS41LjUgMCAwIDAgLjY3NiAwTDEzLjUgNC42MzdWMTJaIi8+PC9zdmc+);
   }
 
-  &[type='password'] {
+  &[type="password"] {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBmaWxsPSIjNzM3MzczIiBkPSJNMTMgNWgtMlYzLjVhMyAzIDAgMCAwLTYgMFY1SDNhMSAxIDAgMCAwLTEgMXY3YTEgMSAwIDAgMCAxIDFoMTBhMSAxIDAgMCAwIDEtMVY2YTEgMSAwIDAgMC0xLTFaTTguNSA5LjkxNFYxMS41YS41LjUgMCAwIDEtMSAwVjkuOTE0YTEuNSAxLjUgMCAxIDEgMSAwWk0xMCA1SDZWMy41YTIgMiAwIDEgMSA0IDBWNVoiLz48L3N2Zz4=);
   }
 

@@ -1,0 +1,28 @@
+.title {
+  composes: title from "./../Login/login.module.css";
+}
+
+.heading {
+  composes: heading from "./../Login/login.module.css";
+}
+
+.create-account {
+  composes: sign-in from "./../Login/login.module.css";
+}
+
+.form {
+  composes: form from "./../Login/login.module.css";
+}
+
+.password-requirement {
+  composes: body-sm from "./../../index.css";
+  color: var(--secondary-text);
+}
+
+.primary-button {
+  composes: primary-button from "./../Login/login.module.css";
+}
+
+.footer {
+  composes: footer from "./../Login/login.module.css";
+}

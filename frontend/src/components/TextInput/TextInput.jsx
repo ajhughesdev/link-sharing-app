@@ -1,7 +1,7 @@
 import { memo, useState } from "react"
 import css from './textInput.module.css'
 
-const TextInput = ({ type, label, placeholder, errorText }) => {
+const TextInput = ({ type, label, placeholder, errorText, minLength }) => {
     const [validationMessage, setValidationMessage] = useState('')
     const [inputValue, setInputValue] = useState('')
 
@@ -32,6 +32,7 @@ const TextInput = ({ type, label, placeholder, errorText }) => {
                 required
                 value={inputValue}
                 onChange={handleChange}
+                minLength={minLength}
             />
             {validationMessage && (
                 <div className={css['validation-message']}>

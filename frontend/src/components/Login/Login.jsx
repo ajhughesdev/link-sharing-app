@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import css from './login.module.css'
-import TextInput from '../TextInput/TextInput'
-import { ReactComponent as Logo } from './../../assets/logo-devlinks-large.svg'
+import TextInput from './../TextInput/TextInput'
+import Header from './../Header/Header'
 
 const Login = () => {
   const handleSubmit = (e) => {
@@ -15,9 +15,7 @@ const Login = () => {
 
   return (
     <div className="container">
-      <header className={css.header}>
-        <Logo width={183} height={40} />
-      </header>
+      <Header />
       <main>
         <section className={css.title}>
           <h1 className={css.heading}>Login</h1>
