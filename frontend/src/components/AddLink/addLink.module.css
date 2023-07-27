@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-inline: 1.5rem;
+}
+
+.button {
+  margin-inline: auto;
+  composes: button from './../../index.css';
+  color: var(--accent-color) !important;
+  border: 1px solid var(--accent-color);
+
+  &:hover {
+    background-color: var(--accent-color-light);
+  }
+}

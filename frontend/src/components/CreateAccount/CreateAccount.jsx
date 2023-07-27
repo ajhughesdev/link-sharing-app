@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Header from './../Header/Header'
 import TextInput from './../TextInput/TextInput'
@@ -12,12 +11,12 @@ const CreateAccount = () => {
         const formElement = e.target
         const isValid = formElement.checkValidity()
         if (isValid) {
-          formElement.reset()
+            formElement.reset()
         }
-      }
+    }
 
     return (
-       <div className='container'>
+        <div className='container'>
             <Header />
             <main>
                 <section className={css.title}>
@@ -60,7 +59,7 @@ const CreateAccount = () => {
                     </div>
                 </section>
             </main>
-       </div>
+        </div>
     )
 }
 

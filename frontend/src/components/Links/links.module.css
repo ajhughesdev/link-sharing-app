@@ -1,0 +1,13 @@
+.container {
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  border-radius: 12px;
+  composes: main from './../../index.css';
+  flex: 1 0 0;
+  align-self: stretch;
+  padding-block-end: 1.5rem;
+}

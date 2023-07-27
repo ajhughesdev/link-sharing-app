@@ -1,0 +1,10 @@
+.container {
+  border-block-start: 1px solid var(--borders-color);
+  width: 100%;
+}
+
+.button {
+  composes: button from './../../index.css';
+  margin: 1rem;
+  width: calc(100% - (1rem * 2)) !important;
+}

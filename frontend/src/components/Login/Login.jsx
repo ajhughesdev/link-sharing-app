@@ -14,7 +14,7 @@ const Login = () => {
   }
 
   return (
-    <div className="container">
+    <div className='container'>
       <Header />
       <main>
         <section className={css.title}>
@@ -49,6 +49,7 @@ const Login = () => {
           </div>
         </section>
       </main>
+
     </div>
   )
 }
