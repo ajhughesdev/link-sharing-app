@@ -77,7 +77,6 @@ a:not([class]) {
 
 .app {
   position: relative;
-  padding: 2rem;
   accent-color: var(--accent-color);
   background: var(--primary-bg);
   height: 100svh;
@@ -102,6 +101,7 @@ a:not([class]) {
   width: 100%;
   gap: 64px;
   background-color: var(--primary-bg);
+  padding: 2rem;
 
   @media (min-width: 640px) {
     align-items: center;
@@ -114,6 +114,7 @@ a:not([class]) {
     top: 50%;
     left: 50%;
     translate: -50% -50%;
+    padding: revert;
   }
 }
 
